@@ -572,5 +572,3 @@ void BufferDebuggerMain::handleAsyncUpdate()
     info->update();
     list->update();
 }
-
-

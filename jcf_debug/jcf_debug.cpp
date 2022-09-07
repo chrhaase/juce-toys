@@ -1,4 +1,7 @@
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wunused-parameter"
+#pragma clang diagnostic ignored "-Wunused-variable"
 
 #include "jcf_debug.h"
 
@@ -13,3 +16,5 @@ using namespace juce;
 #include "source/font_and_colour_designer.cpp"
 
 }
+
+#pragma clang diagnostic pop

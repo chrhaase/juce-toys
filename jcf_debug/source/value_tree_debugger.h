@@ -47,7 +47,7 @@ public:
 
     ValueTreeDebugger (ValueTree& treeToShow);
 
-    ~ValueTreeDebugger();
+    ~ValueTreeDebugger() override;
 
     void closeButtonPressed() override;
 
