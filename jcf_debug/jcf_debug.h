@@ -40,17 +40,20 @@ namespace jcf {
 
 using namespace juce;
 
+#if JUCE_CLANG
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
 #pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 
 #include "source/buffer_debugger.h"
 #include "source/value_tree_debugger.h"
 #include "source/component_debugger.h"
 #include "source/font_and_colour_designer.h"
 
+#if JUCE_CLANG
 #pragma clang diagnostic pop
-
+#endif
 }
 
 #endif  // JCF_DEBUG_H_INCLUDED
