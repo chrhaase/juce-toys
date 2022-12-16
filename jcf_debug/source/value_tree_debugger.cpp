@@ -51,7 +51,7 @@ public:
     private:
         Value noEditValue;
         ValueTree tree;
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PropertyEditor);
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (PropertyEditor)
     };
 
     class Item :
@@ -59,10 +59,10 @@ public:
         public ValueTree::Listener
     {
     public:
-        Item (PropertyEditor* propertiesEditor, ValueTree tree)
+        Item (PropertyEditor* propertiesEditor_, ValueTree tree_)
             :
-            propertiesEditor (propertiesEditor),
-            t (tree)
+            propertiesEditor (propertiesEditor_),
+            t (tree_)
         {
             t.addListener (this);
         }
@@ -144,7 +144,7 @@ public:
                 propertySummary += " " + name.toString() + "=" + propertyValue;
             }
 
-            g.drawText (propertySummary, propertyX, 0, w - propertyX, h, Justification::left, true);
+            g.drawText (propertySummary, (int) propertyX, 0, w - (int) propertyX, h, Justification::left, true);
         }
 
         void itemSelectionChanged (bool isNowSelected)
@@ -158,7 +158,7 @@ public:
         }
 
         /* Enormous list of ValueTree::Listener options... */
-        void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier& property)
+        void valueTreePropertyChanged (ValueTree& treeWhosePropertyHasChanged, const Identifier&)
         {
             if (t != treeWhosePropertyHasChanged) return;
 
@@ -169,7 +169,7 @@ public:
             t.addListener (this);
         }
 
-        void valueTreeChildAdded (ValueTree& parentTree, ValueTree& childWhichHasBeenAdded)
+        void valueTreeChildAdded (ValueTree& parentTree, ValueTree&)
         {
             if (parentTree == t)
                 updateSubItems();
@@ -177,7 +177,7 @@ public:
             treeHasChanged();
         }
 
-        void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& childWhichHasBeenRemoved, int)
+        void valueTreeChildRemoved (ValueTree& parentTree, ValueTree& , int)
         {
             if (parentTree == t)
                 updateSubItems();
@@ -191,7 +191,7 @@ public:
 
             treeHasChanged();
         }
-        void valueTreeParentChanged (ValueTree& treeWhoseParentHasChanged)
+        void valueTreeParentChanged (ValueTree&)
         {
             treeHasChanged();
         }
@@ -215,7 +215,7 @@ public:
         PropertyEditor* propertiesEditor;
         ValueTree t;
         Array<Identifier> currentProperties;
-        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Item);
+        JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (Item)
     };
 
     ValueTreeDebuggerMain() :
@@ -256,7 +256,7 @@ public:
     }
 
 public:
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ValueTreeDebuggerMain);
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ValueTreeDebuggerMain)
 
     std::unique_ptr<Item> rootItem;
     ValueTree tree;

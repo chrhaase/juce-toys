@@ -47,7 +47,7 @@ public:
 
     ValueTreeDebugger (ValueTree& treeToShow);
 
-    ~ValueTreeDebugger();
+    ~ValueTreeDebugger() override;
 
     void closeButtonPressed() override;
 
@@ -63,7 +63,7 @@ private:
     void construct(); 
     std::unique_ptr<ValueTreeDebuggerMain> main;
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ValueTreeDebugger);
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (ValueTreeDebugger)
 };
 
 

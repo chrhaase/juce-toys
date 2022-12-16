@@ -16,7 +16,7 @@ public:
         setSize (300, 400);
         addChangeListener (this);
     }
-    void setSwatchColour (int index, const Colour& newColour) const
+    void setSwatchColour (int index, const Colour& newColour) override
     {
         targetColour = newColour;
         comp.repaint();

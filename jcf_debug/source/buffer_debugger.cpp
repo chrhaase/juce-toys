@@ -29,13 +29,13 @@ public:
         typedef ReferenceCountedObjectPtr<DataSnapshot> Ptr;
 
         /** DataSnapshot holds a single copy of the buffer. */
-        DataSnapshot (const String& name, const float* dataToCopy,
-                      int size, float min, float max)
+        DataSnapshot (const String& name_, const float* dataToCopy,
+                      int size_, float min, float max)
             :
 
-            data (size* sizeof (float), false),
-            size (size),
-            name (name)
+            data (size_* sizeof (float), false),
+            size (size_),
+            name (name_)
         {
             data.copyFrom (dataToCopy, 0, sizeof (float) * size);
             setMinMax (min, max);
@@ -572,5 +572,3 @@ void BufferDebuggerMain::handleAsyncUpdate()
     info->update();
     list->update();
 }
-
-
