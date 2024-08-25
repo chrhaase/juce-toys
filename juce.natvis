@@ -6,7 +6,7 @@
 Install into 
 
     %VSINSTALLDIR%\Common7\Packages\Debugger\Visualizers (requires admin access)
-OR  %USERPROFILE%\My Documents\Visual Studio 2012\Visualizers\
+OR  %USERPROFILE%\Documents\Visual Studio 2022\Visualizers\
 
 One rainy day I'll make this into a Visual Studio Extension for easy installation.
 
