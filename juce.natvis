@@ -30,6 +30,18 @@ See http://github.com/jcredland/juce-toys
     </Expand>
 </Type>
 
+<Type Name="juce::OwnedArray&lt;*&gt;">
+    <DisplayString Condition="values.numUsed == 0">{{ EMPTY numAllocated={values.numAllocated} }}</DisplayString>
+    <DisplayString>{{ numUsed={values.numUsed} numAllocated={values.numAllocated} }}</DisplayString>
+    <Expand>
+        <Item Name="[numUsed]">values.numUsed</Item>
+        <ArrayItems>
+            <Size>values.numUsed</Size>
+            <ValuePointer>values.elements.data</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
 <Type Name="juce::ReferenceCountedArray&lt;*&gt;">
     <DisplayString Condition="values.numUsed == 0">{{ EMPTY numAllocated={values.numAllocated} }}</DisplayString>
     <DisplayString>{{ numUsed={values.numUsed} numAllocated={values.numAllocated} }}</DisplayString>
