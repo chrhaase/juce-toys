@@ -104,6 +104,33 @@ See http://github.com/jcredland/juce-toys
     </Expand>
 </Type>
 
+<Type Name="juce::Component">
+    <DisplayString>{{ {componentName} }}</DisplayString>
+    <Expand>
+        <Synthetic Name="[children]">
+			<DisplayString>numChildren={childComponentList.values.numUsed}</DisplayString>
+			<Expand>
+				<ArrayItems>
+					<Size>childComponentList.values.numUsed</Size>
+					<ValuePointer>childComponentList.values.elements.data</ValuePointer>
+				</ArrayItems>
+			</Expand>
+		</Synthetic>
+    </Expand>
+</Type>
+
+<Type Name="juce::Colour">
+    <DisplayString>r: {argb.components.r}, g: {argb.components.g}, b: {argb.components.b}, a: {argb.components.a}</DisplayString>
+</Type>
+
+<Type Name="juce::String">
+    <DisplayString>{text.data,s}</DisplayString>
+</Type>
+
+<Type Name="juce::Rectangle&lt;*&gt;">
+    <DisplayString>{pos.x}, {pos.y}, {w}, {h}</DisplayString>
+</Type>
+
 
 <Type Name="juce::Identifier">
     <DisplayString>{{ identifier={name.text.data} }}</DisplayString>
