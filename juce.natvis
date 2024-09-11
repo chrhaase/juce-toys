@@ -6,7 +6,7 @@
 Install into 
 
     %VSINSTALLDIR%\Common7\Packages\Debugger\Visualizers (requires admin access)
-OR  %USERPROFILE%\My Documents\Visual Studio 2012\Visualizers\
+OR  %USERPROFILE%\Documents\Visual Studio 2022\Visualizers\
 
 One rainy day I'll make this into a Visual Studio Extension for easy installation.
 
@@ -19,6 +19,18 @@ See http://github.com/jcredland/juce-toys
 
 
 <Type Name="juce::Array&lt;*&gt;">
+    <DisplayString Condition="values.numUsed == 0">{{ EMPTY numAllocated={values.numAllocated} }}</DisplayString>
+    <DisplayString>{{ numUsed={values.numUsed} numAllocated={values.numAllocated} }}</DisplayString>
+    <Expand>
+        <Item Name="[numUsed]">values.numUsed</Item>
+        <ArrayItems>
+            <Size>values.numUsed</Size>
+            <ValuePointer>values.elements.data</ValuePointer>
+        </ArrayItems>
+    </Expand>
+</Type>
+
+<Type Name="juce::OwnedArray&lt;*&gt;">
     <DisplayString Condition="values.numUsed == 0">{{ EMPTY numAllocated={values.numAllocated} }}</DisplayString>
     <DisplayString>{{ numUsed={values.numUsed} numAllocated={values.numAllocated} }}</DisplayString>
     <Expand>
@@ -90,6 +102,33 @@ See http://github.com/jcredland/juce-toys
 			</Expand>
 		</Synthetic>
     </Expand>
+</Type>
+
+<Type Name="juce::Component">
+    <DisplayString>{{ {componentName} }}</DisplayString>
+    <Expand>
+        <Synthetic Name="[children]">
+			<DisplayString>numChildren={childComponentList.values.numUsed}</DisplayString>
+			<Expand>
+				<ArrayItems>
+					<Size>childComponentList.values.numUsed</Size>
+					<ValuePointer>childComponentList.values.elements.data</ValuePointer>
+				</ArrayItems>
+			</Expand>
+		</Synthetic>
+    </Expand>
+</Type>
+
+<Type Name="juce::Colour">
+    <DisplayString>r: {argb.components.r}, g: {argb.components.g}, b: {argb.components.b}, a: {argb.components.a}</DisplayString>
+</Type>
+
+<Type Name="juce::String">
+    <DisplayString>{text.data,s}</DisplayString>
+</Type>
+
+<Type Name="juce::Rectangle&lt;*&gt;">
+    <DisplayString>{pos.x}, {pos.y}, {w}, {h}</DisplayString>
 </Type>
 
 
